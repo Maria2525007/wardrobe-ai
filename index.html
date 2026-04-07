@@ -820,35 +820,59 @@
 
 <!-- ══ SLIDE 4: MARKET ══ -->
 <div class="slide" id="s4">
-  <div style="text-align:center;margin-bottom:8px">
+  <div style="text-align:center;margin-bottom:24px">
     <div class="eyebrow">Рынок</div>
-    <h2>Большой рынок, чёткий фокус</h2>
+    <h2>Откуда берётся наша цель</h2>
   </div>
-  <div class="market-bars">
-    <div class="bar-block">
-      <div class="bar-fill pam"><span class="bar-val">$1.3T</span></div>
-      <div class="axis"></div>
-      <div class="bar-label" style="color:var(--accent3)">PAM</div>
-      <div class="bar-desc">Глобальный онлайн-рынок одежды к 2030</div>
+  <div style="display:grid;grid-template-columns:1fr 56px 1fr;gap:0;align-items:center;max-width:860px;width:100%">
+
+    <!-- Left: calculation chain -->
+    <div style="display:flex;flex-direction:column;gap:0;margin-top:25px">
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:14px 14px 0 0;padding:20px 24px;border-bottom:none">
+        <div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:10px">Шаг 1 — отправная точка</div>
+        <div style="font-family:'DM Mono',monospace;font-size:36px;color:var(--text);line-height:1">₽500 млрд</div>
+        <div style="font-size:12px;color:var(--muted);margin-top:6px">онлайн-продажи одежды в России, 2024</div>
+      </div>
+      <div style="background:var(--surface2);border:1px solid var(--border);padding:12px 24px;display:flex;align-items:center;gap:10px;border-top:none;border-bottom:none">
+        <div>
+          <div style="font-family:'DM Mono',monospace;font-size:15px;color:var(--accent3)">1%</div>
+          <div style="font-size:11px;color:var(--muted)">реалистичная доля за 3 года</div>
+        </div>
+      </div>
+      <div style="background:linear-gradient(135deg,rgba(0,229,160,.1),rgba(0,229,160,.03));border:1px solid rgba(0,229,160,.3);border-radius:0 0 14px 14px;padding:20px 24px;border-top:none">
+        <div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--accent);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:10px">Шаг 2 — наша цель (SOM)</div>
+        <div style="font-family:'DM Mono',monospace;font-size:36px;color:var(--accent);line-height:1">₽5 млрд</div>
+        <div style="font-size:12px;color:var(--muted);margin-top:6px">потенциал через 3 года</div>
+      </div>
     </div>
-    <div class="bar-block" style="transform:translateY(-15px)">
-      <div class="bar-fill tam"><span class="bar-val">$60B</span></div>
-      <div class="axis"></div>
-      <div class="bar-label" style="color:var(--accent)">TAM</div>
-      <div class="bar-desc">Рынок AI в моде к 2034, CAGR 40%</div>
+
+    <!-- Arrow -->
+    <div style="display:flex;align-items:center;justify-content:center">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><polyline points="4,10 16,10" stroke="var(--muted)" stroke-width="1.5" stroke-linecap="round"/><polyline points="11,5 16,10 11,15" stroke="var(--muted)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </div>
-    <div class="bar-block">
-      <div class="bar-fill sam"><span class="bar-val">₽500B</span></div>
-      <div class="axis"></div>
-      <div class="bar-label" style="color:var(--gold)">SAM</div>
-      <div class="bar-desc">Онлайн-продажи одежды в России (2024)</div>
+
+    <!-- Right: meaning in users -->
+    <div style="display:flex;flex-direction:column;gap:12px">
+      <div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:4px;text-align:center">Что это значит на практике</div>
+
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:18px 20px">
+        <div style="font-family:'DM Mono',monospace;font-size:30px;color:var(--accent3);line-height:1">100–200 тыс.</div>
+        <div style="font-size:12px;color:var(--muted);margin-top:5px">пользователей за 3 года</div>
+      </div>
+
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:18px 20px">
+        <div style="font-family:'DM Mono',monospace;font-size:30px;color:var(--gold);line-height:1">299 ₽/мес</div>
+        <div style="font-size:12px;color:var(--muted);margin-top:5px">подписка + комиссия от магазинов</div>
+      </div>
+
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:14px 20px;font-size:12px;color:var(--muted);line-height:1.7">
+        При 20% конверсии в платную подписку:<br>
+        <span style="color:var(--text);font-weight:500">20–40 тыс. платящих пользователей</span><br>
+        = ₽72–143 млн/год только от подписки<br>
+        + доход от партнёрства с магазинами
+      </div>
     </div>
-    <div class="bar-block">
-      <div class="bar-fill som"><span class="bar-val">$60M</span></div>
-      <div class="axis"></div>
-      <div class="bar-label" style="color:var(--accent2)">SOM — цель</div>
-      <div class="bar-desc">1% SAM · 100–200K пользователей · 3 года</div>
-    </div>
+
   </div>
 </div>
 
@@ -891,7 +915,7 @@
 <!-- ══ SLIDE 6: SEGMENTS ══ -->
 <div class="slide" id="s6">
   <div class="eyebrow" style="text-align:center">Целевая аудитория</div>
-  <h2 style="text-align:center">Три сегмента, один ключевой вопрос</h2>
+  <h2 style="text-align:center">Кто купит — и почему им нужны мы</h2>
   <div class="segs">
     <div class="seg primary">
       <div class="seg-icon">
@@ -900,10 +924,14 @@
           <circle cx="11" cy="11" r="3" fill="#00E5A0" opacity=".7"/>
         </svg>
       </div>
-      <span class="tag">Приоритет · H2</span>
+      <span class="tag">Купит прямо сейчас</span>
       <h3 style="margin-top:10px">«Покупал — не ношу»</h3>
-      <p class="desc">Люди с историей regret-покупок. Уже сформированный гардероб, уже потраченные деньги впустую.</p>
-      <p class="pain">«Я вообще реально буду это носить с тем, что у меня уже есть?»</p>
+      <p class="desc">Уже есть опыт потраченных денег впустую. Боль реальная и денежная — мотивация платить высокая.</p>
+      <p class="pain">«Буду ли я это носить с тем, что уже есть?»</p>
+      <div style="margin-top:12px;padding-top:12px;border-top:1px solid var(--border);font-size:11px;color:var(--muted);line-height:1.6">
+        <span style="color:var(--accent)">Экономия денег:</span> 1 предотвращённая покупка = 2–5 тыс. ₽<br>
+        <span style="color:var(--accent)">Экономия времени:</span> не надо возвращать товар
+      </div>
     </div>
     <div class="seg">
       <div class="seg-icon">
@@ -913,10 +941,13 @@
           <line x1="11" y1="8" x2="11" y2="15" stroke="#5B8DF6" stroke-width="1.5" stroke-linecap="round"/>
         </svg>
       </div>
-      <span class="tag blue">Wedge · H3</span>
+      <span class="tag blue">Следующая волна</span>
       <h3 style="margin-top:10px">«Новая роль — новый гардероб»</h3>
-      <p class="desc">Сменили работу, переехали, изменился статус. Высокая тревожность и бюджет на обновление.</p>
+      <p class="desc">Сменили работу, переехали, изменился статус. Нужно обновить гардероб, но бюджет ограничен.</p>
       <p class="pain">«А вдруг куплю не то и не попаду в новый образ?»</p>
+      <div style="margin-top:12px;padding-top:12px;border-top:1px solid var(--border);font-size:11px;color:var(--muted);line-height:1.6">
+        <span style="color:var(--accent3)">Ценность:</span> уверенность при крупных обновлениях гардероба
+      </div>
     </div>
     <div class="seg">
       <div class="seg-icon">
@@ -925,10 +956,13 @@
           <path d="M4 19 C4 15 18 15 18 19" stroke="#F5C842" stroke-width="1.5" stroke-linecap="round" fill="none"/>
         </svg>
       </div>
-      <span class="tag gold">Резерв · H1</span>
+      <span class="tag gold">Перспектива</span>
       <h3 style="margin-top:10px">«Опять это утро»</h3>
-      <p class="desc">Ежедневный стресс перед работой. 20–30 минут теряется, надевает одно и то же.</p>
+      <p class="desc">Ежедневный стресс при выборе одежды. 20–30 минут теряется каждый день.</p>
       <p class="pain">«Как собрать образ быстро и не пожалеть?»</p>
+      <div style="margin-top:12px;padding-top:12px;border-top:1px solid var(--border);font-size:11px;color:var(--muted);line-height:1.6">
+        <span style="color:var(--gold)">Экономия времени:</span> 20–30 мин утром × 20 рабочих дней = ~10 ч/мес
+      </div>
     </div>
   </div>
 </div>
@@ -947,9 +981,10 @@
       </div>
       <div class="price">299 ₽</div>
       <div class="price-sub">в месяц / безлимитные проверки</div>
-      <div class="feat">Бесплатно: 1 проверка в день — лидмагнит</div>
-      <div class="feat">Подписка: безлимит + прогноз трендов (H4)</div>
-      <div class="feat">Цена = 1 чашка кофе, экономит тысячи</div>
+      <div class="feat">Бесплатно: 1 проверка в день → пробуешь без риска</div>
+      <div class="feat">Подписка: безлимит + история образов</div>
+      <div class="feat">Почему платят регулярно: гардероб постоянно обновляется — каждая новая вещь требует новой проверки</div>
+      <div class="feat">1 предотвращённая покупка = 2–5 тыс. ₽ → подписка окупается с первого раза</div>
     </div>
     <div class="stream">
       <div class="stream-head">
@@ -995,76 +1030,163 @@
 <!-- ══ SLIDE 8: COMPETITORS ══ -->
 <div class="slide" id="s8">
   <div class="eyebrow" style="text-align:center">Конкурентный анализ</div>
-  <h2 style="text-align:center">Учимся на чужих ошибках</h2>
-  <div class="comp-layout">
-    <!-- Feature comparison matrix -->
-    <div class="matrix">
-      <div class="matrix-head">
-        <div class="mh">Функция</div>
-        <div class="mh">Alle</div>
-        <div class="mh">Whering</div>
-        <div class="mh">Cladwell</div>
-        <div class="mh us-col">Мы</div>
+  <h2 style="text-align:center">Как люди решают проблему сейчас</h2>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:1060px;width:100%;margin-top:20px">
+
+    <!-- Left: current workarounds -->
+    <div style="display:flex;flex-direction:column;gap:10px">
+      <div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:2px">Без нас — как справляются сейчас</div>
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:14px 16px;display:flex;align-items:flex-start;gap:12px">
+        <div style="font-family:'DM Mono',monospace;font-size:20px;color:var(--accent3);min-width:42px">61%</div>
+        <div>
+          <div style="font-size:13px;font-weight:600;margin-bottom:2px">Спрашивают подругу</div>
+          <div style="font-size:11px;color:var(--muted);line-height:1.5">Работает не всегда — подруги нет рядом, вкусы разные, гардероб она не видит</div>
+        </div>
       </div>
-      <div class="matrix-row">
-        <div class="mr-feat">Проверка до покупки</div>
-        <div class="mr-cell"><span class="chk no">✕</span></div>
-        <div class="mr-cell"><span class="chk no">✕</span></div>
-        <div class="mr-cell"><span class="chk part">~</span></div>
-        <div class="mr-cell"><span class="chk yes">✓</span></div>
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:14px 16px;display:flex;align-items:flex-start;gap:12px">
+        <div style="font-family:'DM Mono',monospace;font-size:20px;color:var(--accent3);min-width:42px">44%</div>
+        <div>
+          <div style="font-size:13px;font-weight:600;margin-bottom:2px">Едут примерить в магазин</div>
+          <div style="font-size:11px;color:var(--muted);line-height:1.5">Долго, не всегда возможно и всё равно не видно сочетаемости с домашним гардеробом</div>
+        </div>
       </div>
-      <div class="matrix-row">
-        <div class="mr-feat">Старт без полного гардероба</div>
-        <div class="mr-cell"><span class="chk no">✕</span></div>
-        <div class="mr-cell"><span class="chk no">✕</span></div>
-        <div class="mr-cell"><span class="chk no">✕</span></div>
-        <div class="mr-cell"><span class="chk yes">✓</span></div>
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:14px 16px;display:flex;align-items:flex-start;gap:12px">
+        <div style="font-family:'DM Mono',monospace;font-size:20px;color:var(--accent2);min-width:42px">22%</div>
+        <div>
+          <div style="font-size:13px;font-weight:600;margin-bottom:2px">Никак — покупают наугад</div>
+          <div style="font-size:11px;color:var(--muted);line-height:1.5">Именно они чаще всего возвращают вещи или складывают в шкаф навсегда</div>
+        </div>
       </div>
-      <div class="matrix-row">
-        <div class="mr-feat">Фокус на одной боли</div>
-        <div class="mr-cell"><span class="chk no">✕</span></div>
-        <div class="mr-cell"><span class="chk part">~</span></div>
-        <div class="mr-cell"><span class="chk part">~</span></div>
-        <div class="mr-cell"><span class="chk yes">✓</span></div>
-      </div>
-      <div class="matrix-row">
-        <div class="mr-feat">B2B-монетизация (CPA)</div>
-        <div class="mr-cell"><span class="chk no">✕</span></div>
-        <div class="mr-cell"><span class="chk no">✕</span></div>
-        <div class="mr-cell"><span class="chk no">✕</span></div>
-        <div class="mr-cell"><span class="chk yes">✓</span></div>
-      </div>
-      <div class="matrix-row">
-        <div class="mr-feat">Российский рынок</div>
-        <div class="mr-cell"><span class="chk no">✕</span></div>
-        <div class="mr-cell"><span class="chk no">✕</span></div>
-        <div class="mr-cell"><span class="chk no">✕</span></div>
-        <div class="mr-cell"><span class="chk yes">✓</span></div>
+      <div style="background:rgba(0,229,160,.06);border:1px solid rgba(0,229,160,.2);border-radius:12px;padding:12px 16px;font-size:12px;color:var(--muted);line-height:1.6">
+        <span style="color:var(--accent);font-weight:600">Вывод:</span> цифрового инструмента нет — люди опираются на людей или интуицию
       </div>
     </div>
 
-    <!-- Status cards -->
-    <div class="status-col">
-      <div class="s-card">
-        <div class="s-dot" style="background:var(--accent2)"></div>
-        <div><div class="s-name">Alle · Индия</div><div class="s-sub">$3M · 6 pivot'ов · нет бизнес-модели</div></div>
-        <div class="s-badge dead">Закрылся</div>
+    <!-- Right: competitors with monetization -->
+    <div style="display:flex;flex-direction:column;gap:10px">
+      <div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:2px">Прямые конкуренты — и на чём зарабатывают</div>
+
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:14px 16px">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
+          <div style="font-size:13px;font-weight:600">Alle · Индия</div>
+          <div style="font-family:'DM Mono',monospace;font-size:10px;background:rgba(255,77,114,.15);color:var(--accent2);padding:3px 8px;border-radius:6px">Закрылся</div>
+        </div>
+        <div style="font-size:11px;color:var(--muted);line-height:1.55">Цифровой гардероб. Привлёк $3M, 6 смен концепции. <span style="color:var(--text)">Монетизации не нашёл</span> — так и не понял, за что пользователь платит.</div>
       </div>
-      <div class="s-card">
-        <div class="s-dot" style="background:var(--accent)"></div>
-        <div><div class="s-name">Whering · UK</div><div class="s-sub">9M+ пользователей · бесплатно · комьюнити</div></div>
-        <div class="s-badge ok">Работает</div>
+
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:14px 16px">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
+          <div style="font-size:13px;font-weight:600">Whering · Великобритания</div>
+          <div style="font-family:'DM Mono',monospace;font-size:10px;background:rgba(245,200,66,.15);color:var(--gold);padding:3px 8px;border-radius:6px">Работает</div>
+        </div>
+        <div style="font-size:11px;color:var(--muted);line-height:1.55">Каталог одежды + комьюнити. 9 млн пользователей. <span style="color:var(--text)">Зарабатывает: аффилиатные ссылки</span>, но основной сервис бесплатный — устойчивой выручки нет.</div>
       </div>
-      <div class="s-card">
-        <div class="s-dot" style="background:var(--gold)"></div>
-        <div><div class="s-name">Cladwell · USA</div><div class="s-sub">TIME Best Invention 2025 · paywall барьер</div></div>
-        <div class="s-badge warn">Выживает</div>
+
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:14px 16px">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
+          <div style="font-size:13px;font-weight:600">Cladwell · США</div>
+          <div style="font-family:'DM Mono',monospace;font-size:10px;background:rgba(91,141,246,.15);color:var(--accent3);padding:3px 8px;border-radius:6px">TIME 2025</div>
+        </div>
+        <div style="font-size:11px;color:var(--muted);line-height:1.55">Подбор капсульного гардероба. <span style="color:var(--text)">Зарабатывает: подписка $8/мес</span>. Проблема: платная стена с первого экрана — большинство уходит, не попробовав.</div>
       </div>
-      <div class="s-card us-card">
-        <div class="s-dot" style="background:var(--accent)"></div>
-        <div><div class="s-name" style="color:var(--accent)">Wardrobe AI</div><div class="s-sub">Anti-regret · 3–5 вещей для старта · CPA</div></div>
-        <div class="s-badge us-b">Мы</div>
+
+      <div style="background:rgba(0,229,160,.06);border:1px solid rgba(0,229,160,.25);border-radius:12px;padding:12px 16px;font-size:12px;color:var(--muted);line-height:1.6">
+        <span style="color:var(--accent);font-weight:600">Наш вывод:</span> никто не работает на рынке РФ; никто не делает проверку <em>до</em> покупки; у Whering нет устойчивой монетизации — мы берём лучшее от Cladwell (платная подписка) и добавляем бесплатный вход
       </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ══ SLIDE 8b: BARRIERS + TESTING ══ -->
+<div class="slide" id="s8b">
+  <div class="eyebrow" style="text-align:center">Наше преимущество</div>
+  <h2 style="text-align:center">Барьеры входа и что мы уже сделали</h2>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:1060px;width:100%;margin-top:20px">
+
+    <!-- Left: barriers to entry -->
+    <div style="display:flex;flex-direction:column;gap:10px">
+      <div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:2px">Реальные барьеры для конкурентов</div>
+
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:16px">
+        <div style="display:flex;gap:10px;align-items:flex-start">
+          <div style="font-family:'DM Mono',monospace;font-size:11px;background:rgba(0,229,160,.15);color:var(--accent);padding:3px 8px;border-radius:6px;white-space:nowrap;flex-shrink:0">Данные</div>
+          <div>
+            <div style="font-size:13px;font-weight:600;margin-bottom:3px">Датасет совместимости одежды</div>
+            <div style="font-size:11px;color:var(--muted);line-height:1.5">Обучение модели требует размеченных данных. Чем больше пользователей — тем точнее AI. Чем точнее AI — тем больше пользователей. Самоусиливающийся эффект.</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:16px">
+        <div style="display:flex;gap:10px;align-items:flex-start">
+          <div style="font-family:'DM Mono',monospace;font-size:11px;background:rgba(91,141,246,.15);color:var(--accent3);padding:3px 8px;border-radius:6px;white-space:nowrap;flex-shrink:0">Доверие</div>
+          <div>
+            <div style="font-size:13px;font-weight:600;margin-bottom:3px">Личный гардероб пользователя</div>
+            <div style="font-size:11px;color:var(--muted);line-height:1.5">Пользователь один раз загружает вещи — и не хочет повторять это в другом приложении. Высокий порог переключения.</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:16px">
+        <div style="display:flex;gap:10px;align-items:flex-start">
+          <div style="font-family:'DM Mono',monospace;font-size:11px;background:rgba(245,200,66,.12);color:var(--gold);padding:3px 8px;border-radius:6px;white-space:nowrap;flex-shrink:0">Партнёры</div>
+          <div>
+            <div style="font-size:13px;font-weight:600;margin-bottom:3px">Интеграции с ритейлерами</div>
+            <div style="font-size:11px;color:var(--muted);line-height:1.5">Договоры с магазинами — переговорный актив. Пока мы первые на российском рынке, у нас преимущество первого.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right: what was tested -->
+    <div style="display:flex;flex-direction:column;gap:10px">
+      <div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:2px">Что сделано и что планируем</div>
+
+      <div style="background:rgba(0,229,160,.06);border:1px solid rgba(0,229,160,.25);border-radius:12px;padding:16px">
+        <div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--accent);text-transform:uppercase;letter-spacing:1px;margin-bottom:10px">До защиты — уже проверили</div>
+        <div style="display:flex;flex-direction:column;gap:7px">
+          <div style="display:flex;gap:8px;font-size:12px;line-height:1.5">
+            <span style="color:var(--accent);flex-shrink:0">✓</span>
+            <span>Опрос 47 студентов — подтвердили боль и готовность платить (85%)</span>
+          </div>
+          <div style="display:flex;gap:8px;font-size:12px;line-height:1.5">
+            <span style="color:var(--accent);flex-shrink:0">✓</span>
+            <span>Проанализировали 3 прямых конкурента — нашли рыночную нишу</span>
+          </div>
+          <div style="display:flex;gap:8px;font-size:12px;line-height:1.5">
+            <span style="color:var(--accent);flex-shrink:0">✓</span>
+            <span>Прописали бизнес-модель и юнит-экономику</span>
+          </div>
+          <div style="display:flex;gap:8px;font-size:12px;line-height:1.5">
+            <span style="color:var(--accent);flex-shrink:0">✓</span>
+            <span>Оценили рынок в рублях и рассчитали реалистичный SOM</span>
+          </div>
+        </div>
+      </div>
+
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:16px">
+        <div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:10px">После защиты — следующие шаги</div>
+        <div style="display:flex;flex-direction:column;gap:7px">
+          <div style="display:flex;gap:8px;font-size:12px;line-height:1.5;color:var(--muted)">
+            <span style="color:var(--accent3);flex-shrink:0">→</span>
+            <span>Глубинные интервью с пользователями — уточнить сценарии использования</span>
+          </div>
+          <div style="display:flex;gap:8px;font-size:12px;line-height:1.5;color:var(--muted)">
+            <span style="color:var(--accent3);flex-shrink:0">→</span>
+            <span>Прототип в Figma — проверить UX до написания кода</span>
+          </div>
+          <div style="display:flex;gap:8px;font-size:12px;line-height:1.5;color:var(--muted)">
+            <span style="color:var(--accent3);flex-shrink:0">→</span>
+            <span>Сбор первоначального датасета совместимости одежды</span>
+          </div>
+          <div style="display:flex;gap:8px;font-size:12px;line-height:1.5;color:var(--muted)">
+            <span style="color:var(--accent3);flex-shrink:0">→</span>
+            <span>MVP с функцией Scan & Check — пилот в ИТМО</span>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </div>
