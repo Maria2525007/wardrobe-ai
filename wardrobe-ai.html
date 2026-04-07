@@ -1,0 +1,1059 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wardrobe AI — Pitch Deck</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@700;900&family=Geologica:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #05080F;
+    --surface: #0D1220;
+    --surface2: #151C2E;
+    --border: rgba(255,255,255,0.07);
+    --text: #EEF0F6;
+    --muted: #7A849E;
+    --accent: #00E5A0;
+    --accent2: #FF4D72;
+    --accent3: #5B8DF6;
+    --gold: #F5C842;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Geologica', sans-serif;
+    height: 100vh;
+    overflow: hidden;
+    user-select: none;
+  }
+
+  .deck { width: 100%; height: 100vh; position: relative; }
+
+  .slide {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 56px 80px;
+    opacity: 0;
+    transform: translateX(40px);
+    transition: opacity .45s ease, transform .45s ease;
+    pointer-events: none;
+  }
+  .slide.active { opacity: 1; transform: translateX(0); pointer-events: all; }
+  .slide.out    { opacity: 0; transform: translateX(-40px); }
+
+  /* ── EDGE CLICK ZONES ── */
+  .edge { position: fixed; top: 0; width: 12%; height: 100%; z-index: 50; cursor: pointer; }
+  .edge-left  { left: 0; }
+  .edge-right { right: 0; }
+
+  /* ── TYPOGRAPHY ── */
+  .eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 14px;
+  }
+  h1 {
+    font-family: 'Unbounded', sans-serif;
+    font-size: clamp(52px, 6vw, 82px);
+    font-weight: 900; line-height: .95; letter-spacing: -3px;
+  }
+  h2 {
+    font-family: 'Unbounded', sans-serif;
+    font-size: clamp(28px, 3.5vw, 48px);
+    font-weight: 700; line-height: 1.05; letter-spacing: -1.5px;
+  }
+  h3 {
+    font-family: 'Unbounded', sans-serif;
+    font-size: clamp(14px, 1.6vw, 18px);
+    font-weight: 700; letter-spacing: -.5px;
+  }
+  .lead {
+    font-size: clamp(14px, 1.5vw, 17px);
+    line-height: 1.65; color: var(--muted); max-width: 580px;
+  }
+  .mono { font-family: 'DM Mono', monospace; }
+
+  /* ── SHARED ── */
+  .card {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 24px 28px;
+  }
+  .tag {
+    display: inline-block; font-family: 'DM Mono', monospace;
+    font-size: 10px; letter-spacing: 1px; text-transform: uppercase;
+    padding: 4px 10px; border-radius: 100px;
+    background: rgba(0,229,160,.1); color: var(--accent); border: 1px solid rgba(0,229,160,.2);
+  }
+  .tag.red  { background: rgba(255,77,114,.1); color: var(--accent2); border-color: rgba(255,77,114,.2); }
+  .tag.blue { background: rgba(91,141,246,.1); color: var(--accent3); border-color: rgba(91,141,246,.2); }
+  .tag.gold { background: rgba(245,200,66,.1); color: var(--gold);    border-color: rgba(245,200,66,.2); }
+
+  /* ── SVG ICON BASE ── */
+  .ico-wrap {
+    display: flex; align-items: center; justify-content: center;
+    border-radius: 14px; flex-shrink: 0;
+  }
+
+  /* ════════════════════════════════════
+     SLIDE 1 — HERO
+  ════════════════════════════════════ */
+  #s1 {
+    background:
+      radial-gradient(ellipse 65% 55% at 65% 40%, rgba(0,229,160,.08) 0%, transparent 60%),
+      radial-gradient(ellipse 45% 45% at 20% 75%, rgba(91,141,246,.07) 0%, transparent 55%),
+      var(--bg);
+    text-align: center;
+  }
+  #s1 .logo-mark {
+    width: 72px; height: 72px;
+    background: linear-gradient(135deg, var(--accent), var(--accent3));
+    border-radius: 20px;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 28px;
+    box-shadow: 0 0 48px rgba(0,229,160,.22);
+  }
+  #s1 h1 em { color: var(--accent); font-style: normal; }
+  #s1 .tagline {
+    font-size: clamp(14px, 1.6vw, 18px); color: var(--muted);
+    margin-top: 18px; max-width: 500px; line-height: 1.6;
+  }
+  #s1 .metrics {
+    margin-top: 44px;
+    display: flex; gap: 0; justify-content: center;
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 16px; overflow: hidden;
+  }
+  #s1 .m-item {
+    padding: 20px 36px; border-right: 1px solid var(--border); text-align: center;
+  }
+  #s1 .m-item:last-child { border-right: none; }
+  #s1 .m-num {
+    font-family: 'DM Mono', monospace;
+    font-size: 28px; font-weight: 500; color: var(--accent); line-height: 1;
+  }
+  #s1 .m-lbl { font-size: 11px; color: var(--muted); margin-top: 4px; }
+  #s1 .team-row {
+    margin-top: 28px;
+    display: flex; gap: 10px; justify-content: center;
+  }
+  #s1 .team-chip {
+    display: flex; align-items: center; gap: 8px;
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 100px; padding: 6px 14px;
+    font-size: 12px; color: var(--muted);
+  }
+  #s1 .team-chip .dot-a {
+    width: 8px; height: 8px; border-radius: 50%; background: var(--accent); flex-shrink: 0;
+  }
+
+  /* ════════════════════════════════════
+     SLIDE 2 — PROBLEM
+  ════════════════════════════════════ */
+  #s2 {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 60px;
+    align-items: center; max-width: 1100px; width: 100%; margin: 0 auto;
+  }
+  #s2 .quote {
+    font-family: 'Geologica', sans-serif;
+    font-size: clamp(16px, 1.8vw, 22px); font-weight: 600;
+    line-height: 1.4; border-left: 3px solid var(--accent2);
+    padding-left: 18px; margin: 22px 0; color: var(--text);
+  }
+  #s2 .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  #s2 .stat-card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 14px; padding: 20px 18px;
+  }
+  #s2 .stat-card .num {
+    font-family: 'DM Mono', monospace; font-size: 38px; font-weight: 500; line-height: 1;
+  }
+  #s2 .stat-card .num.red { color: var(--accent2); }
+  #s2 .stat-card .num.green { color: var(--accent); }
+  #s2 .stat-card .lbl { font-size: 12px; color: var(--muted); margin-top: 6px; line-height: 1.4; }
+
+  /* ════════════════════════════════════
+     SLIDE 3 — WHY NOW
+  ════════════════════════════════════ */
+  #s3 { max-width: 1000px; width: 100%; margin: 0 auto; }
+  #s3 .factors { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 32px; }
+  #s3 .factor {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 16px; padding: 28px 24px; position: relative; overflow: hidden;
+  }
+  #s3 .factor::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  }
+  #s3 .factor:nth-child(1)::before { background: var(--accent2); }
+  #s3 .factor:nth-child(2)::before { background: var(--accent3); }
+  #s3 .factor:nth-child(3)::before { background: var(--accent); }
+  #s3 .factor .f-icon {
+    width: 44px; height: 44px; border-radius: 10px;
+    margin-bottom: 16px; display: flex; align-items: center; justify-content: center;
+  }
+  #s3 .factor:nth-child(1) .f-icon { background: rgba(255,77,114,.12); }
+  #s3 .factor:nth-child(2) .f-icon { background: rgba(91,141,246,.12); }
+  #s3 .factor:nth-child(3) .f-icon { background: rgba(0,229,160,.12); }
+  #s3 .factor .num {
+    font-family: 'DM Mono', monospace; font-size: 34px; font-weight: 500; line-height: 1; margin-bottom: 8px;
+  }
+  #s3 .factor:nth-child(1) .num { color: var(--accent2); }
+  #s3 .factor:nth-child(2) .num { color: var(--accent3); }
+  #s3 .factor:nth-child(3) .num { color: var(--accent); }
+  #s3 .factor h3 { font-size: 15px; margin-bottom: 10px; }
+  #s3 .factor p { font-size: 13px; color: var(--muted); line-height: 1.55; }
+
+  /* ════════════════════════════════════
+     SLIDE 4 — MARKET
+  ════════════════════════════════════ */
+  #s4 { max-width: 1050px; width: 100%; margin: 0 auto; }
+  #s4 .market-bars {
+    display: flex; gap: 20px; margin-top: 36px; align-items: flex-end;
+  }
+  #s4 .bar-block {
+    flex: 1; display: flex; flex-direction: column; align-items: center; gap: 10px;
+  }
+  #s4 .bar-fill {
+    width: 100%; border-radius: 10px 10px 0 0;
+    display: flex; align-items: flex-end; justify-content: center; padding-bottom: 14px;
+  }
+  #s4 .bar-val { font-family: 'DM Mono', monospace; font-size: 20px; font-weight: 500; color: #fff; }
+  #s4 .axis { width: 100%; height: 1px; background: var(--border); }
+  #s4 .bar-label {
+    font-family: 'DM Mono', monospace; font-size: 11px; font-weight: 500;
+    letter-spacing: 1px; text-transform: uppercase; text-align: center;
+  }
+  #s4 .bar-desc { font-size: 11px; color: var(--muted); text-align: center; line-height: 1.4; }
+  #s4 .bar-fill.pam { background: linear-gradient(to top, rgba(91,141,246,.5), rgba(91,141,246,.1)); height: 220px; }
+  #s4 .bar-fill.tam { background: linear-gradient(to top, rgba(0,229,160,.5), rgba(0,229,160,.1)); height: 160px; }
+  #s4 .bar-fill.sam { background: linear-gradient(to top, rgba(245,200,66,.5), rgba(245,200,66,.1)); height: 108px; }
+  #s4 .bar-fill.som { background: linear-gradient(to top, rgba(255,77,114,.6), rgba(255,77,114,.1)); height: 62px; }
+
+  /* ════════════════════════════════════
+     SLIDE 5 — SOLUTION
+  ════════════════════════════════════ */
+  #s5 { max-width: 1050px; width: 100%; margin: 0 auto; }
+  #s5 .before-after {
+    display: grid; grid-template-columns: 1fr auto 1fr;
+    gap: 0; margin-top: 30px; align-items: stretch;
+  }
+  #s5 .side {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 28px;
+  }
+  #s5 .side.after { border-color: rgba(0,229,160,.28); background: rgba(0,229,160,.04); }
+  #s5 .side-head {
+    font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 2px;
+    text-transform: uppercase; margin-bottom: 18px; display: flex; align-items: center; gap: 8px;
+  }
+  #s5 .side-head.before { color: var(--accent2); }
+  #s5 .side-head.after  { color: var(--accent); }
+  #s5 .row { display: flex; gap: 10px; margin-bottom: 12px; align-items: flex-start; font-size: 14px; line-height: 1.5; }
+  #s5 .row .bullet {
+    width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; margin-top: 6px;
+  }
+  #s5 .side .bullet { background: var(--accent2); }
+  #s5 .side.after .bullet { background: var(--accent); }
+  #s5 .arrow-mid { display: flex; align-items: center; justify-content: center; width: 64px; flex-shrink: 0; }
+  #s5 .arrow-mid .circle {
+    width: 44px; height: 44px; background: var(--surface2);
+    border: 1px solid var(--border); border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+  }
+  #s5 .win-bar {
+    margin-top: 22px;
+    background: linear-gradient(90deg, rgba(0,229,160,.12), transparent);
+    border: 1px solid rgba(0,229,160,.2); border-radius: 10px;
+    padding: 14px 18px; font-size: 13.5px; line-height: 1.5;
+  }
+  #s5 .win-bar strong { color: var(--accent); }
+
+  /* ════════════════════════════════════
+     SLIDE 6 — SEGMENTS
+  ════════════════════════════════════ */
+  #s6 { max-width: 1050px; width: 100%; margin: 0 auto; }
+  #s6 .segs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 30px; }
+  #s6 .seg {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 16px; padding: 26px 22px;
+  }
+  #s6 .seg.primary { border-color: rgba(0,229,160,.28); }
+  #s6 .seg-icon {
+    width: 44px; height: 44px; border-radius: 12px;
+    display: flex; align-items: center; justify-content: center; margin-bottom: 14px;
+  }
+  #s6 .seg:nth-child(1) .seg-icon { background: rgba(0,229,160,.12); }
+  #s6 .seg:nth-child(2) .seg-icon { background: rgba(91,141,246,.12); }
+  #s6 .seg:nth-child(3) .seg-icon { background: rgba(245,200,66,.1); }
+  #s6 .seg h3 { font-size: 15px; margin-bottom: 8px; }
+  #s6 .seg .desc { font-size: 12.5px; color: var(--muted); line-height: 1.55; margin-bottom: 14px; }
+  #s6 .seg .pain {
+    font-size: 13px; font-style: italic; color: var(--text);
+    border-left: 2px solid; padding-left: 12px; line-height: 1.5;
+  }
+  #s6 .seg:nth-child(1) .pain { border-color: var(--accent); }
+  #s6 .seg:nth-child(2) .pain { border-color: var(--accent3); }
+  #s6 .seg:nth-child(3) .pain { border-color: var(--gold); }
+
+  /* ════════════════════════════════════
+     SLIDE 7 — BIZ MODEL
+  ════════════════════════════════════ */
+  #s7 { max-width: 1050px; width: 100%; margin: 0 auto; }
+  #s7 .model-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 30px; }
+  #s7 .stream {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 26px;
+  }
+  #s7 .stream.main { border-color: rgba(0,229,160,.22); }
+  #s7 .stream-head { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; }
+  #s7 .stream-ico {
+    width: 40px; height: 40px; border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  #s7 .stream.main .stream-ico { background: rgba(0,229,160,.12); }
+  #s7 .stream:nth-child(2) .stream-ico { background: rgba(91,141,246,.12); }
+  #s7 .stream-title { font-family: 'Unbounded', sans-serif; font-size: 16px; font-weight: 700; }
+  #s7 .stream-sub { font-size: 11px; color: var(--muted); margin-top: 2px; }
+  #s7 .price {
+    font-family: 'DM Mono', monospace; font-size: 36px; font-weight: 500; line-height: 1; margin-bottom: 4px;
+  }
+  #s7 .stream.main .price { color: var(--accent); }
+  #s7 .stream:nth-child(2) .price { color: var(--accent3); }
+  #s7 .price-sub { font-size: 11px; color: var(--muted); margin-bottom: 14px; }
+  #s7 .feat { font-size: 12.5px; color: var(--muted); margin-bottom: 6px; display: flex; gap: 8px; line-height: 1.45; }
+  #s7 .feat::before { content: '→'; color: var(--accent); flex-shrink: 0; }
+  #s7 .stream:nth-child(2) .feat::before { color: var(--accent3); }
+  #s7 .funnel {
+    grid-column: span 2;
+    background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 20px 26px;
+  }
+  #s7 .funnel-title {
+    font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 1.5px;
+    text-transform: uppercase; color: var(--muted); margin-bottom: 14px;
+  }
+  #s7 .funnel-steps { display: flex; align-items: center; }
+  #s7 .f-step { flex: 1; text-align: center; padding: 8px 6px; position: relative; }
+  #s7 .f-step::after {
+    content: '→'; position: absolute; right: -8px; top: 50%; transform: translateY(-50%);
+    color: var(--border); font-size: 16px;
+  }
+  #s7 .f-step:last-child::after { display: none; }
+  #s7 .f-dot {
+    width: 32px; height: 32px; border-radius: 50%; margin: 0 auto 6px;
+    display: flex; align-items: center; justify-content: center;
+    background: var(--surface2); border: 1px solid var(--border);
+  }
+  #s7 .f-name { font-size: 11px; font-weight: 600; color: var(--text); }
+  #s7 .f-desc { font-size: 10px; color: var(--muted); margin-top: 1px; }
+
+  /* ════════════════════════════════════
+     SLIDE 8 — COMPETITORS (visual matrix)
+  ════════════════════════════════════ */
+  #s8 { max-width: 1000px; width: 100%; margin: 0 auto; }
+  #s8 .comp-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 28px; }
+
+  /* Feature matrix */
+  #s8 .matrix {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 16px; overflow: hidden;
+  }
+  #s8 .matrix-head {
+    display: grid; grid-template-columns: 150px repeat(4,1fr);
+    background: var(--surface2); border-bottom: 1px solid var(--border);
+  }
+  #s8 .mh { padding: 10px 12px; font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 1px; text-transform: uppercase; color: var(--muted); text-align: center; }
+  #s8 .mh:first-child { text-align: left; }
+  #s8 .mh.us-col { color: var(--accent); }
+  #s8 .matrix-row {
+    display: grid; grid-template-columns: 150px repeat(4,1fr);
+    border-bottom: 1px solid var(--border); align-items: center;
+  }
+  #s8 .matrix-row:last-child { border-bottom: none; }
+  #s8 .mr-feat { padding: 11px 14px; font-size: 12px; color: var(--muted); }
+  #s8 .mr-cell { padding: 11px 12px; text-align: center; }
+  #s8 .chk {
+    width: 20px; height: 20px; border-radius: 50%; display: inline-flex;
+    align-items: center; justify-content: center; font-size: 11px; font-weight: 700;
+  }
+  #s8 .chk.yes { background: rgba(0,229,160,.15); color: var(--accent); }
+  #s8 .chk.no  { background: rgba(255,77,114,.1);  color: var(--accent2); }
+  #s8 .chk.part{ background: rgba(245,200,66,.1);  color: var(--gold); }
+
+  /* Status cards */
+  #s8 .status-col { display: flex; flex-direction: column; gap: 12px; }
+  #s8 .s-card {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 14px;
+    padding: 16px 18px; display: grid; grid-template-columns: auto 1fr auto; gap: 12px; align-items: center;
+  }
+  #s8 .s-card.us-card { border-color: rgba(0,229,160,.25); background: rgba(0,229,160,.04); }
+  #s8 .s-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+  #s8 .s-name { font-size: 13px; font-weight: 600; }
+  #s8 .s-sub  { font-size: 11px; color: var(--muted); margin-top: 2px; }
+  #s8 .s-badge {
+    font-family: 'DM Mono', monospace; font-size: 10px; font-weight: 500;
+    padding: 3px 8px; border-radius: 100px; white-space: nowrap;
+  }
+  #s8 .dead { background: rgba(255,77,114,.12); color: var(--accent2); }
+  #s8 .ok   { background: rgba(0,229,160,.12);  color: var(--accent); }
+  #s8 .warn { background: rgba(245,200,66,.1);   color: var(--gold); }
+  #s8 .us-b { background: rgba(0,229,160,.18);   color: var(--accent); border: 1px solid rgba(0,229,160,.3); }
+
+  /* ════════════════════════════════════
+     SLIDE 9 — ROADMAP
+  ════════════════════════════════════ */
+  #s9 { max-width: 1050px; width: 100%; margin: 0 auto; }
+  #s9 .timeline { display: grid; grid-template-columns: repeat(4,1fr); gap: 14px; margin-top: 30px; position: relative; }
+  #s9 .tl-line {
+    position: absolute; top: 28px; left: 4%; right: 4%; height: 2px;
+    background: linear-gradient(90deg, var(--accent), var(--accent3), var(--gold), var(--accent2)); z-index: 0;
+  }
+  #s9 .phase {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 16px; padding: 22px 18px; position: relative; z-index: 1;
+  }
+  #s9 .phase:nth-child(1) { border-top: 3px solid var(--accent); }
+  #s9 .phase:nth-child(2) { border-top: 3px solid var(--accent3); }
+  #s9 .phase:nth-child(3) { border-top: 3px solid var(--gold); }
+  #s9 .phase:nth-child(4) { border-top: 3px solid var(--accent2); }
+  #s9 .phase-date {
+    font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: .5px;
+    text-transform: uppercase; margin-bottom: 8px;
+  }
+  #s9 .phase:nth-child(1) .phase-date { color: var(--accent); }
+  #s9 .phase:nth-child(2) .phase-date { color: var(--accent3); }
+  #s9 .phase:nth-child(3) .phase-date { color: var(--gold); }
+  #s9 .phase:nth-child(4) .phase-date { color: var(--accent2); }
+  #s9 .phase-title { font-family: 'Unbounded', sans-serif; font-size: 14px; font-weight: 700; margin-bottom: 14px; }
+  #s9 .phase-item { display: flex; gap: 7px; font-size: 11.5px; color: var(--muted); margin-bottom: 5px; line-height: 1.4; align-items: flex-start; }
+  #s9 .phase-item .pi-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--muted); flex-shrink: 0; margin-top: 5px; }
+
+  /* ════════════════════════════════════
+     SLIDE 10 — RISKS (visual)
+  ════════════════════════════════════ */
+  #s10 { max-width: 1000px; width: 100%; margin: 0 auto; }
+  #s10 .risk-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 28px; }
+
+  /* Risk matrix chart */
+  #s10 .risk-matrix {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 24px; position: relative;
+  }
+  #s10 .rm-title { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); margin-bottom: 16px; }
+  #s10 .rm-grid {
+    display: grid; grid-template-columns: repeat(3,1fr); grid-template-rows: repeat(3,1fr);
+    gap: 6px; height: 210px;
+  }
+  #s10 .rm-cell {
+    border-radius: 8px; display: flex; align-items: center; justify-content: center;
+  }
+  #s10 .rm-cell.low  { background: rgba(0,229,160,.06); }
+  #s10 .rm-cell.med  { background: rgba(245,200,66,.06); }
+  #s10 .rm-cell.high { background: rgba(255,77,114,.08); }
+  #s10 .rm-cell.crit { background: rgba(255,77,114,.18); }
+  #s10 .risk-pin {
+    width: 36px; height: 36px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'DM Mono', monospace; font-size: 12px; font-weight: 500;
+    border: 2px solid; cursor: default;
+  }
+  #s10 .risk-pin.r1 { background: rgba(91,141,246,.2); border-color: var(--accent3); color: var(--accent3); }
+  #s10 .risk-pin.r2 { background: rgba(245,200,66,.2); border-color: var(--gold); color: var(--gold); }
+  #s10 .risk-pin.r5 { background: rgba(255,77,114,.2); border-color: var(--accent2); color: var(--accent2); }
+  #s10 .rm-axes {
+    display: flex; justify-content: space-between; margin-top: 6px;
+    font-family: 'DM Mono', monospace; font-size: 10px; color: var(--muted);
+  }
+  #s10 .rm-y-label {
+    position: absolute; left: 10px; top: 50%; transform: translateY(-50%) rotate(-90deg);
+    font-family: 'DM Mono', monospace; font-size: 10px; color: var(--muted); white-space: nowrap;
+  }
+
+  /* Risk cards */
+  #s10 .risk-cards { display: flex; flex-direction: column; gap: 12px; }
+  #s10 .r-card {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 16px 18px;
+  }
+  #s10 .r-card-head { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+  #s10 .r-badge {
+    font-family: 'DM Mono', monospace; font-size: 11px; font-weight: 500;
+    padding: 3px 9px; border-radius: 100px;
+  }
+  #s10 .r-card:nth-child(1) .r-badge { background: rgba(255,77,114,.12); color: var(--accent2); }
+  #s10 .r-card:nth-child(2) .r-badge { background: rgba(245,200,66,.1); color: var(--gold); }
+  #s10 .r-card:nth-child(3) .r-badge { background: rgba(91,141,246,.1); color: var(--accent3); }
+  #s10 .r-title { font-size: 13px; font-weight: 600; }
+  #s10 .r-mit { font-size: 12px; color: var(--muted); line-height: 1.5; }
+  #s10 .r-mit strong { color: var(--text); font-weight: 600; }
+
+  /* ════════════════════════════════════
+     SLIDE 11 — CTA
+  ════════════════════════════════════ */
+  #s11 {
+    text-align: center;
+    background:
+      radial-gradient(ellipse 55% 50% at 50% 50%, rgba(0,229,160,.09) 0%, transparent 65%),
+      var(--bg);
+  }
+  #s11 h2 { max-width: 640px; }
+  #s11 .cta-cards {
+    display: flex; gap: 14px; margin-top: 36px; justify-content: center;
+  }
+  #s11 .cta-card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 14px; padding: 20px 24px; width: 170px; text-align: left;
+  }
+  #s11 .c-icon {
+    width: 34px; height: 34px; border-radius: 8px;
+    margin-bottom: 10px; display: flex; align-items: center; justify-content: center;
+  }
+  #s11 .cnum {
+    font-family: 'DM Mono', monospace; font-size: 26px; font-weight: 500;
+    color: var(--accent); line-height: 1;
+  }
+  #s11 .clbl { font-size: 11px; color: var(--muted); margin-top: 4px; line-height: 1.4; }
+  #s11 .team-block {
+    margin-top: 32px;
+    display: flex; gap: 10px; justify-content: center;
+  }
+  #s11 .t-chip {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 100px; padding: 8px 16px; display: flex; align-items: center; gap: 8px;
+  }
+  #s11 .t-av {
+    width: 22px; height: 22px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'DM Mono', monospace; font-size: 9px; font-weight: 500;
+    flex-shrink: 0;
+  }
+  #s11 .t-av.a1 { background: rgba(0,229,160,.2); color: var(--accent); }
+  #s11 .t-av.a2 { background: rgba(91,141,246,.2); color: var(--accent3); }
+  #s11 .t-av.a3 { background: rgba(245,200,66,.15); color: var(--gold); }
+  #s11 .t-name { font-size: 12px; color: var(--muted); }
+  #s11 .pill {
+    display: inline-block; margin-top: 22px;
+    background: linear-gradient(135deg, rgba(0,229,160,.18), rgba(91,141,246,.18));
+    border: 1px solid rgba(0,229,160,.22); border-radius: 100px;
+    padding: 10px 28px; font-size: 13px; font-weight: 600; color: var(--accent); letter-spacing: .3px;
+  }
+
+  /* ── dot bg texture ── */
+  .slide::after {
+    content: ''; position: absolute; inset: 0;
+    background-image: radial-gradient(circle, rgba(255,255,255,.022) 1px, transparent 1px);
+    background-size: 30px 30px; pointer-events: none; z-index: -1;
+  }
+</style>
+</head>
+<body>
+<div class="deck" id="deck">
+
+<!-- ══ SLIDE 1: HERO ══ -->
+<div class="slide active" id="s1">
+  <div class="logo-mark">
+    <svg width="38" height="38" viewBox="0 0 38 38" fill="none">
+      <path d="M19 4 L34 13 L34 25 L19 34 L4 25 L4 13 Z" stroke="white" stroke-width="2" fill="none" stroke-linejoin="round"/>
+      <circle cx="19" cy="19" r="5" fill="white" opacity=".9"/>
+    </svg>
+  </div>
+  <div class="eyebrow">Startup · 2026</div>
+  <h1>Wardrobe <em>AI</em></h1>
+  <p class="tagline">AI-сервис, который показывает до оплаты —<br>сочетается ли новая вещь с вашим гардеробом</p>
+  <div class="metrics">
+    <div class="m-item"><div class="m-num">25%</div><div class="m-lbl">онлайн-покупок одежды возвращается</div></div>
+    <div class="m-item"><div class="m-num">$60B</div><div class="m-lbl">рынок AI в моде к 2034</div></div>
+    <div class="m-item"><div class="m-num">×27</div><div class="m-lbl">рост рынка за 10 лет</div></div>
+  </div>
+  <div class="team-row">
+    <div class="team-chip"><div class="dot-a"></div>Махмудова Мария</div>
+    <div class="team-chip"><div class="dot-a"></div>Пахомов Владислав</div>
+    <div class="team-chip"><div class="dot-a"></div>Григорьева Юлия</div>
+  </div>
+</div>
+
+<!-- ══ SLIDE 2: PROBLEM ══ -->
+<div class="slide" id="s2">
+  <div class="left">
+    <div class="eyebrow">Проблема</div>
+    <h2>Каждая 4-я покупка — ошибка</h2>
+    <div class="quote">«Купила блузку — дома поняла, что ни с чем не сочетается. Ни разу не надела.»</div>
+    <p class="lead">Люди покупают «на ощупь», не видя своего гардероба. Вещи не носятся — деньги потрачены впустую.</p>
+  </div>
+  <div class="right">
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="num red">25%</div>
+        <div class="lbl">онлайн-покупок одежды возвращается — лидер среди всех категорий</div>
+      </div>
+      <div class="stat-card">
+        <div class="num red">30–40%</div>
+        <div class="lbl">вещей в шкафу не носятся вообще</div>
+      </div>
+      <div class="stat-card">
+        <div class="num green">$1.3T</div>
+        <div class="lbl">объём рынка fashion e-commerce к 2030</div>
+      </div>
+      <div class="stat-card">
+        <div class="num green">×27</div>
+        <div class="lbl">рост рынка AI в моде за 10 лет</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ SLIDE 3: WHY NOW ══ -->
+<div class="slide" id="s3">
+  <div style="text-align:center;max-width:660px">
+    <div class="eyebrow">Почему сейчас</div>
+    <h2>Три фактора сошлись одновременно</h2>
+  </div>
+  <div class="factors">
+    <div class="factor">
+      <div class="f-icon">
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+          <rect x="2" y="2" width="8" height="8" rx="2" fill="#FF4D72" opacity=".8"/>
+          <rect x="12" y="2" width="8" height="8" rx="2" fill="#FF4D72" opacity=".5"/>
+          <rect x="2" y="12" width="8" height="8" rx="2" fill="#FF4D72" opacity=".5"/>
+          <rect x="12" y="12" width="8" height="8" rx="2" fill="#FF4D72" opacity=".3"/>
+        </svg>
+      </div>
+      <div class="num">1 из 4</div>
+      <h3>Критическая масса боли</h3>
+      <p>Одежда — лидер по возвратам. 25% онлайн-покупок не находят владельца. Это больно и для покупателей, и для ритейлеров.</p>
+    </div>
+    <div class="factor">
+      <div class="f-icon">
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+          <polyline points="2,16 7,9 11,12 16,5 20,8" stroke="#5B8DF6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <circle cx="20" cy="8" r="2" fill="#5B8DF6"/>
+        </svg>
+      </div>
+      <div class="num">×2</div>
+      <h3>Онлайн-шопинг — норма</h3>
+      <p>Fashion e-commerce удваивается к 2030. Чем больше покупок онлайн — тем больше ошибок: нельзя примерить, не видно сочетаемости.</p>
+    </div>
+    <div class="factor">
+      <div class="f-icon">
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+          <circle cx="11" cy="11" r="8" stroke="#00E5A0" stroke-width="2" fill="none"/>
+          <path d="M11 7 L11 11 L14 13" stroke="#00E5A0" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="num">+40%</div>
+      <h3>Технологии созрели</h3>
+      <p>CAGR рынка AI в моде — 40% в год. Computer Vision, recommendation systems, генеративный AI — всё уже работает и доступно.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ══ SLIDE 4: MARKET ══ -->
+<div class="slide" id="s4">
+  <div style="text-align:center;margin-bottom:8px">
+    <div class="eyebrow">Рынок</div>
+    <h2>Большой рынок, чёткий фокус</h2>
+  </div>
+  <div class="market-bars">
+    <div class="bar-block">
+      <div class="bar-fill pam"><span class="bar-val">$1.3T</span></div>
+      <div class="axis"></div>
+      <div class="bar-label" style="color:var(--accent3)">PAM</div>
+      <div class="bar-desc">Глобальный онлайн-рынок одежды к 2030</div>
+    </div>
+    <div class="bar-block" style="transform:translateY(-15px)">
+      <div class="bar-fill tam"><span class="bar-val">$60B</span></div>
+      <div class="axis"></div>
+      <div class="bar-label" style="color:var(--accent)">TAM</div>
+      <div class="bar-desc">Рынок AI в моде к 2034, CAGR 40%</div>
+    </div>
+    <div class="bar-block">
+      <div class="bar-fill sam"><span class="bar-val">₽500B</span></div>
+      <div class="axis"></div>
+      <div class="bar-label" style="color:var(--gold)">SAM</div>
+      <div class="bar-desc">Онлайн-продажи одежды в России (2024)</div>
+    </div>
+    <div class="bar-block">
+      <div class="bar-fill som"><span class="bar-val">$60M</span></div>
+      <div class="axis"></div>
+      <div class="bar-label" style="color:var(--accent2)">SOM — цель</div>
+      <div class="bar-desc">1% SAM · 100–200K пользователей · 3 года</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ SLIDE 5: SOLUTION ══ -->
+<div class="slide" id="s5">
+  <div class="eyebrow" style="text-align:center">Решение</div>
+  <h2 style="text-align:center">До оплаты — не после</h2>
+  <div class="before-after">
+    <div class="side">
+      <div class="side-head before">
+        <svg width="14" height="14" viewBox="0 0 14 14"><circle cx="7" cy="7" r="6" stroke="#FF4D72" stroke-width="1.5" fill="none"/><line x1="4" y1="4" x2="10" y2="10" stroke="#FF4D72" stroke-width="1.5" stroke-linecap="round"/><line x1="10" y1="4" x2="4" y2="10" stroke="#FF4D72" stroke-width="1.5" stroke-linecap="round"/></svg>
+        Без Wardrobe AI
+      </div>
+      <div class="row"><div class="bullet"></div><span>Покупает «на ощупь», не помня гардероб</span></div>
+      <div class="row"><div class="bullet"></div><span>30–40% вещей не носятся — деньги на ветер</span></div>
+      <div class="row"><div class="bullet"></div><span>Решение принимается вслепую, на эмоциях</span></div>
+      <div class="row"><div class="bullet"></div><span>Возврат стоит ритейлеру 25–30% от чека</span></div>
+    </div>
+    <div class="arrow-mid">
+      <div class="circle">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><polyline points="6,3 12,9 6,15" stroke="var(--muted)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+    </div>
+    <div class="side after">
+      <div class="side-head after">
+        <svg width="14" height="14" viewBox="0 0 14 14"><circle cx="7" cy="7" r="6" stroke="#00E5A0" stroke-width="1.5" fill="none"/><polyline points="4,7 6.5,9.5 10,5" stroke="#00E5A0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+        С Wardrobe AI
+      </div>
+      <div class="row"><div class="bullet"></div><span>Наводит камеру или вставляет ссылку на вещь</span></div>
+      <div class="row"><div class="bullet"></div><span>AI сравнивает с гардеробом за секунды</span></div>
+      <div class="row"><div class="bullet"></div><span>«Бери — сочетается» или «Оставь — не впишется»</span></div>
+      <div class="row"><div class="bullet"></div><span>Покупает только то, что реально будет носить</span></div>
+    </div>
+  </div>
+  <div class="win-bar">
+    <strong>Главный выигрыш:</strong> превращаем шопинг из лотереи в осознанную инвестицию — уверенность и сохранённые деньги
+  </div>
+</div>
+
+<!-- ══ SLIDE 6: SEGMENTS ══ -->
+<div class="slide" id="s6">
+  <div class="eyebrow" style="text-align:center">Целевая аудитория</div>
+  <h2 style="text-align:center">Три сегмента, один ключевой вопрос</h2>
+  <div class="segs">
+    <div class="seg primary">
+      <div class="seg-icon">
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+          <path d="M11 3 L19 7 L19 15 L11 19 L3 15 L3 7 Z" stroke="#00E5A0" stroke-width="1.5" fill="none" stroke-linejoin="round"/>
+          <circle cx="11" cy="11" r="3" fill="#00E5A0" opacity=".7"/>
+        </svg>
+      </div>
+      <span class="tag">Приоритет · H2</span>
+      <h3 style="margin-top:10px">«Покупал — не ношу»</h3>
+      <p class="desc">Люди с историей regret-покупок. Уже сформированный гардероб, уже потраченные деньги впустую.</p>
+      <p class="pain">«Я вообще реально буду это носить с тем, что у меня уже есть?»</p>
+    </div>
+    <div class="seg">
+      <div class="seg-icon">
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+          <circle cx="11" cy="11" r="8" stroke="#5B8DF6" stroke-width="1.5" fill="none" stroke-dasharray="3 2"/>
+          <polyline points="8,11 11,8 14,11" stroke="#5B8DF6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <line x1="11" y1="8" x2="11" y2="15" stroke="#5B8DF6" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <span class="tag blue">Wedge · H3</span>
+      <h3 style="margin-top:10px">«Новая роль — новый гардероб»</h3>
+      <p class="desc">Сменили работу, переехали, изменился статус. Высокая тревожность и бюджет на обновление.</p>
+      <p class="pain">«А вдруг куплю не то и не попаду в новый образ?»</p>
+    </div>
+    <div class="seg">
+      <div class="seg-icon">
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+          <circle cx="11" cy="7" r="4" stroke="#F5C842" stroke-width="1.5" fill="none"/>
+          <path d="M4 19 C4 15 18 15 18 19" stroke="#F5C842" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+        </svg>
+      </div>
+      <span class="tag gold">Резерв · H1</span>
+      <h3 style="margin-top:10px">«Опять это утро»</h3>
+      <p class="desc">Ежедневный стресс перед работой. 20–30 минут теряется, надевает одно и то же.</p>
+      <p class="pain">«Как собрать образ быстро и не пожалеть?»</p>
+    </div>
+  </div>
+</div>
+
+<!-- ══ SLIDE 7: BIZ MODEL ══ -->
+<div class="slide" id="s7">
+  <div class="eyebrow" style="text-align:center">Бизнес-модель</div>
+  <h2 style="text-align:center">Гибридная: B2C + B2B2C</h2>
+  <div class="model-grid">
+    <div class="stream main">
+      <div class="stream-head">
+        <div class="stream-ico">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="7" r="3.5" stroke="#00E5A0" stroke-width="1.5" fill="none"/><path d="M3 18 C3 13.5 17 13.5 17 18" stroke="#00E5A0" stroke-width="1.5" stroke-linecap="round" fill="none"/></svg>
+        </div>
+        <div><div class="stream-title">B2C Подписка</div><div class="stream-sub">Прямой доход от пользователя</div></div>
+      </div>
+      <div class="price">299 ₽</div>
+      <div class="price-sub">в месяц / безлимитные проверки</div>
+      <div class="feat">Бесплатно: 1 проверка в день — лидмагнит</div>
+      <div class="feat">Подписка: безлимит + прогноз трендов (H4)</div>
+      <div class="feat">Цена = 1 чашка кофе, экономит тысячи</div>
+    </div>
+    <div class="stream">
+      <div class="stream-head">
+        <div class="stream-ico">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="3" y="5" width="14" height="10" rx="2" stroke="#5B8DF6" stroke-width="1.5" fill="none"/><line x1="7" y1="5" x2="7" y2="15" stroke="#5B8DF6" stroke-width="1" opacity=".5"/><line x1="13" y1="5" x2="13" y2="15" stroke="#5B8DF6" stroke-width="1" opacity=".5"/></svg>
+        </div>
+        <div><div class="stream-title">B2B2C Комиссия</div><div class="stream-sub">Партнёрства с ритейлерами</div></div>
+      </div>
+      <div class="price">5–10%</div>
+      <div class="price-sub">с каждой покупки по рекомендации AI</div>
+      <div class="feat">Ритейлер платит — возврат стоит им 25–30%</div>
+      <div class="feat">Приводим горячих клиентов: они уже знают, что купят</div>
+      <div class="feat">Страхует от риска «не хотят платить»</div>
+    </div>
+    <div class="funnel">
+      <div class="funnel-title">Путь пользователя</div>
+      <div class="funnel-steps">
+        <div class="f-step">
+          <div class="f-dot"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="5" stroke="#00E5A0" stroke-width="1.2" fill="none"/><line x1="5" y1="7" x2="9" y2="7" stroke="#00E5A0" stroke-width="1.2" stroke-linecap="round"/><line x1="7" y1="5" x2="7" y2="9" stroke="#00E5A0" stroke-width="1.2" stroke-linecap="round"/></svg></div>
+          <div class="f-name">Бесплатный скан</div><div class="f-desc">Лидмагнит</div>
+        </div>
+        <div class="f-step">
+          <div class="f-dot"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><polygon points="7,2 9.5,5.5 13,6 10.5,8.5 11,12 7,10 3,12 3.5,8.5 1,6 4.5,5.5" stroke="#5B8DF6" stroke-width="1" fill="rgba(91,141,246,.2)"/></svg></div>
+          <div class="f-name">AI — ценность</div><div class="f-desc">Первый результат</div>
+        </div>
+        <div class="f-step">
+          <div class="f-dot"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><rect x="2" y="3" width="10" height="8" rx="1.5" stroke="#F5C842" stroke-width="1.2" fill="none"/><line x1="5" y1="3" x2="5" y2="11" stroke="#F5C842" stroke-width="1" opacity=".5"/><line x1="9" y1="3" x2="9" y2="11" stroke="#F5C842" stroke-width="1" opacity=".5"/></svg></div>
+          <div class="f-name">Подписка</div><div class="f-desc">299 ₽/мес</div>
+        </div>
+        <div class="f-step">
+          <div class="f-dot"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7 L6 10 L11 4" stroke="#00E5A0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></div>
+          <div class="f-name">Купить образ</div><div class="f-desc">→ партнёр</div>
+        </div>
+        <div class="f-step">
+          <div class="f-dot"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="5" fill="rgba(0,229,160,.15)" stroke="#00E5A0" stroke-width="1.2"/><text x="7" y="10" text-anchor="middle" font-size="7" fill="#00E5A0" font-family="monospace">₽</text></svg></div>
+          <div class="f-name">CPA-комиссия</div><div class="f-desc">5–10%</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ SLIDE 8: COMPETITORS ══ -->
+<div class="slide" id="s8">
+  <div class="eyebrow" style="text-align:center">Конкурентный анализ</div>
+  <h2 style="text-align:center">Учимся на чужих ошибках</h2>
+  <div class="comp-layout">
+    <!-- Feature comparison matrix -->
+    <div class="matrix">
+      <div class="matrix-head">
+        <div class="mh">Функция</div>
+        <div class="mh">Alle</div>
+        <div class="mh">Whering</div>
+        <div class="mh">Cladwell</div>
+        <div class="mh us-col">Мы</div>
+      </div>
+      <div class="matrix-row">
+        <div class="mr-feat">Проверка до покупки</div>
+        <div class="mr-cell"><span class="chk no">✕</span></div>
+        <div class="mr-cell"><span class="chk no">✕</span></div>
+        <div class="mr-cell"><span class="chk part">~</span></div>
+        <div class="mr-cell"><span class="chk yes">✓</span></div>
+      </div>
+      <div class="matrix-row">
+        <div class="mr-feat">Старт без полного гардероба</div>
+        <div class="mr-cell"><span class="chk no">✕</span></div>
+        <div class="mr-cell"><span class="chk no">✕</span></div>
+        <div class="mr-cell"><span class="chk no">✕</span></div>
+        <div class="mr-cell"><span class="chk yes">✓</span></div>
+      </div>
+      <div class="matrix-row">
+        <div class="mr-feat">Фокус на одной боли</div>
+        <div class="mr-cell"><span class="chk no">✕</span></div>
+        <div class="mr-cell"><span class="chk part">~</span></div>
+        <div class="mr-cell"><span class="chk part">~</span></div>
+        <div class="mr-cell"><span class="chk yes">✓</span></div>
+      </div>
+      <div class="matrix-row">
+        <div class="mr-feat">B2B-монетизация (CPA)</div>
+        <div class="mr-cell"><span class="chk no">✕</span></div>
+        <div class="mr-cell"><span class="chk no">✕</span></div>
+        <div class="mr-cell"><span class="chk no">✕</span></div>
+        <div class="mr-cell"><span class="chk yes">✓</span></div>
+      </div>
+      <div class="matrix-row">
+        <div class="mr-feat">Российский рынок</div>
+        <div class="mr-cell"><span class="chk no">✕</span></div>
+        <div class="mr-cell"><span class="chk no">✕</span></div>
+        <div class="mr-cell"><span class="chk no">✕</span></div>
+        <div class="mr-cell"><span class="chk yes">✓</span></div>
+      </div>
+    </div>
+
+    <!-- Status cards -->
+    <div class="status-col">
+      <div class="s-card">
+        <div class="s-dot" style="background:var(--accent2)"></div>
+        <div><div class="s-name">Alle · Индия</div><div class="s-sub">$3M · 6 pivot'ов · нет бизнес-модели</div></div>
+        <div class="s-badge dead">Закрылся</div>
+      </div>
+      <div class="s-card">
+        <div class="s-dot" style="background:var(--accent)"></div>
+        <div><div class="s-name">Whering · UK</div><div class="s-sub">9M+ пользователей · бесплатно · комьюнити</div></div>
+        <div class="s-badge ok">Работает</div>
+      </div>
+      <div class="s-card">
+        <div class="s-dot" style="background:var(--gold)"></div>
+        <div><div class="s-name">Cladwell · USA</div><div class="s-sub">TIME Best Invention 2025 · paywall барьер</div></div>
+        <div class="s-badge warn">Выживает</div>
+      </div>
+      <div class="s-card us-card">
+        <div class="s-dot" style="background:var(--accent)"></div>
+        <div><div class="s-name" style="color:var(--accent)">Wardrobe AI</div><div class="s-sub">Anti-regret · 3–5 вещей для старта · CPA</div></div>
+        <div class="s-badge us-b">Мы</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ SLIDE 9: ROADMAP ══ -->
+<div class="slide" id="s9">
+  <div class="eyebrow" style="text-align:center">Роадмап</div>
+  <h2 style="text-align:center">От валидации до масштабирования</h2>
+  <div class="timeline">
+    <div class="tl-line"></div>
+    <div class="phase">
+      <div class="phase-date">Май – Июнь 2026</div>
+      <div class="phase-title">Валидация</div>
+      <div class="phase-item"><div class="pi-dot"></div>CustDev — 15 вопросов, реальные интервью</div>
+      <div class="phase-item"><div class="pi-dot"></div>Прототип в Figma, финализация UI/UX</div>
+      <div class="phase-item"><div class="pi-dot"></div>Сбор датасета совместимости одежды</div>
+      <div class="phase-item"><div class="pi-dot"></div>Юридическое оформление</div>
+    </div>
+    <div class="phase">
+      <div class="phase-date">Июль – Авг 2026</div>
+      <div class="phase-title">MVP</div>
+      <div class="phase-item"><div class="pi-dot"></div>Ядро: Scan & Check (3–5 вещей)</div>
+      <div class="phase-item"><div class="pi-dot"></div>Computer Vision + рекомендации</div>
+      <div class="phase-item"><div class="pi-dot"></div>Лендинг + waitlist + Telegram-посев</div>
+      <div class="phase-item"><div class="pi-dot"></div>Поиск грантов / акселераторов</div>
+    </div>
+    <div class="phase">
+      <div class="phase-date">Сент – Окт 2026</div>
+      <div class="phase-title">Бета</div>
+      <div class="phase-item"><div class="pi-dot"></div>Пилот в ИТМО — замер Retention</div>
+      <div class="phase-item"><div class="pi-dot"></div>Реферальная программа</div>
+      <div class="phase-item"><div class="pi-dot"></div>Проверка H4 и монетизации</div>
+      <div class="phase-item"><div class="pi-dot"></div>Первые CPA-договоры с брендами</div>
+    </div>
+    <div class="phase">
+      <div class="phase-date">Ноябрь 2026 – Янв 2027</div>
+      <div class="phase-title">Масштаб</div>
+      <div class="phase-item"><div class="pi-dot"></div>Релиз v1.0 в AppStore / Google Play</div>
+      <div class="phase-item"><div class="pi-dot"></div>Партнёрства с ритейлерами</div>
+      <div class="phase-item"><div class="pi-dot"></div>Таргетированная реклама</div>
+      <div class="phase-item"><div class="pi-dot"></div>Подготовка к Pre-Seed раунду</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ SLIDE 10: RISKS ══ -->
+<div class="slide" id="s10">
+  <div class="eyebrow" style="text-align:center">Управление рисками</div>
+  <h2 style="text-align:center">Мы знаем, где может сломаться</h2>
+  <div class="risk-layout">
+    <!-- Visual risk matrix -->
+    <div class="risk-matrix">
+      <div class="rm-title">Вероятность × Тяжесть</div>
+      <div class="rm-y-label">↑ Тяжесть</div>
+      <div class="rm-grid">
+        <!-- row 3 (top = high severity) -->
+        <div class="rm-cell med"></div>
+        <div class="rm-cell high"></div>
+        <div class="rm-cell crit"><div class="risk-pin r5">R5</div></div>
+        <!-- row 2 -->
+        <div class="rm-cell low"></div>
+        <div class="rm-cell med"><div class="risk-pin r2">R2</div></div>
+        <div class="rm-cell high"></div>
+        <!-- row 1 (bottom = low severity) -->
+        <div class="rm-cell low"></div>
+        <div class="rm-cell low"><div class="risk-pin r1">R1</div></div>
+        <div class="rm-cell med"></div>
+      </div>
+      <div class="rm-axes"><span>Низкая веро-сть</span><span>Высокая →</span></div>
+    </div>
+
+    <!-- Risk cards -->
+    <div class="risk-cards">
+      <div class="r-card">
+        <div class="r-card-head">
+          <span class="r-badge">R5 · Критично</span>
+          <div class="r-title">Не хотят платить (B2C)</div>
+        </div>
+        <div class="r-mit"><strong>Решение:</strong> гибридная модель — CPA с ритейлеров работает даже без подписки. Freemium набирает базу.</div>
+      </div>
+      <div class="r-card">
+        <div class="r-card-head">
+          <span class="r-badge">R2 · Средний</span>
+          <div class="r-title">Высокий барьер онбординга</div>
+        </div>
+        <div class="r-mit"><strong>Решение:</strong> ценность с 3–5 вещей. Не требуем весь гардероб до первого результата.</div>
+      </div>
+      <div class="r-card">
+        <div class="r-card-head">
+          <span class="r-badge">R1 · Умеренный</span>
+          <div class="r-title">Импульс важнее логики</div>
+        </div>
+        <div class="r-mit"><strong>Решение:</strong> фокус только на тех, у кого уже есть история неносимых вещей — реальная денежная боль.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ SLIDE 11: CTA ══ -->
+<div class="slide" id="s11">
+  <div class="eyebrow">Итог</div>
+  <h2>Мы решаем реальную боль<br>в идеальное время</h2>
+  <div class="cta-cards">
+    <div class="cta-card">
+      <div class="c-icon" style="background:rgba(0,229,160,.1)">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 2 L16 6 L16 12 L9 16 L2 12 L2 6 Z" stroke="#00E5A0" stroke-width="1.5" fill="none" stroke-linejoin="round"/><circle cx="9" cy="9" r="2.5" fill="#00E5A0" opacity=".6"/></svg>
+      </div>
+      <div class="cnum">1 боль</div>
+      <div class="clbl">anti-regret покупка — чёткий фокус</div>
+    </div>
+    <div class="cta-card">
+      <div class="c-icon" style="background:rgba(91,141,246,.1)">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><polyline points="2,14 6,8 10,11 14,4 17,7" stroke="#5B8DF6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+      </div>
+      <div class="cnum">$60B</div>
+      <div class="clbl">рынок AI в моде к 2034</div>
+    </div>
+    <div class="cta-card">
+      <div class="c-icon" style="background:rgba(245,200,66,.1)">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="3" y="3" width="12" height="12" rx="2" stroke="#F5C842" stroke-width="1.5" fill="none"/><polyline points="6,9 8,11 12,7" stroke="#F5C842" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+      </div>
+      <div class="cnum">MVP</div>
+      <div class="clbl">запуск лето 2026</div>
+    </div>
+    <div class="cta-card">
+      <div class="c-icon" style="background:rgba(255,77,114,.1)">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="6" r="3" stroke="#FF4D72" stroke-width="1.5" fill="none"/><path d="M3 16 C3 12 15 12 15 16" stroke="#FF4D72" stroke-width="1.5" stroke-linecap="round" fill="none"/></svg>
+      </div>
+      <div class="cnum">3 чел</div>
+      <div class="clbl">НИУ СПБ ИТМО</div>
+    </div>
+  </div>
+  <div class="pill">Wardrobe AI — от лотереи к осознанному шопингу</div>
+</div>
+
+</div><!-- /deck -->
+
+<div class="edge edge-left"  onclick="prevSlide()"></div>
+<div class="edge edge-right" onclick="nextSlide()"></div>
+
+<script>
+  const slides = document.querySelectorAll('.slide');
+  let current = 0;
+  const total = slides.length;
+
+  function goTo(n) {
+    slides[current].classList.remove('active');
+    slides[current].classList.add('out');
+    setTimeout(() => slides[current].classList.remove('out'), 450);
+    current = (n + total) % total;
+    slides[current].classList.add('active');
+  }
+
+  function nextSlide() { goTo(current + 1); }
+  function prevSlide() { goTo(current - 1); }
+
+  document.addEventListener('keydown', e => {
+    if (['ArrowRight','ArrowDown',' '].includes(e.key)) { e.preventDefault(); nextSlide(); }
+    if (['ArrowLeft','ArrowUp'].includes(e.key)) { e.preventDefault(); prevSlide(); }
+  });
+</script>
+</body>
+</html>
